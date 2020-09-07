@@ -24,9 +24,9 @@ class ShoppingList extends Component {
           onClick={() => {
             const name = prompt('Enter Item');
             if (name) {
-              this.setState((state) => ({
-                items: [...state.items, { id: uuid(), name }],
-              }));
+              this.setState({
+                items: [...this.state.items, { id: uuid(), name }],
+              });
             }
           }}
         >
@@ -43,9 +43,11 @@ class ShoppingList extends Component {
                     color='danger'
                     size='sm'
                     onClick={() => {
-                      this.setState((state) => ({
-                        items: state.items.filter((item) => item.id !== id),
-                      }));
+                      this.setState({
+                        items: this.state.items.filter(
+                          (item) => item.id !== id
+                        ),
+                      });
                     }}
                   >
                     &times;
